@@ -1,0 +1,25 @@
+# Requirements for the RAPA (TC-TD V3) attacker code in this repository.
+#
+# NOTE: the upstream model repositories (openvla / openvla_oft / openpi /
+# LIBERO) are NOT vendored here and must be cloned separately -- see README.
+# Each upstream model was originally run in its own environment, so pin
+# versions to whatever that upstream requires.
+
+# --- core tensor / DL stack (PyTorch backend: OpenVLA, OpenVLA-OFT) ---
+torch>=2.0
+torchvision>=0.15
+numpy>=1.24
+transformers>=4.40
+accelerate>=0.30
+pillow>=10.0
+tqdm
+
+# --- config plumbing used by the patch-generation entry points ---
+draccus
+
+# --- JAX backend (Pi0) ---
+jax>=0.4
+optax>=0.1
+
+# --- experiment logging ---
+wandb

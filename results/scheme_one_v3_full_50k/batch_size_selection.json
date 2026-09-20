@@ -1,0 +1,31 @@
+{
+  "status": "complete",
+  "time": "2026-07-17 04:42:44",
+  "selected_batch_size": 48,
+  "shared_across_models": [
+    "openvla",
+    "openvla_oft",
+    "pi0"
+  ],
+  "probe_start": 32,
+  "candidates": [
+    16,
+    20,
+    24,
+    28,
+    32,
+    36,
+    40,
+    48,
+    56,
+    60,
+    64
+  ],
+  "tested": {
+    "32": true,
+    "48": true,
+    "56": false,
+    "64": false
+  },
+  "criterion": "one complete optimization step with finite V3 metrics on every model"
+}

@@ -1,0 +1,73 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+venv/
+.venv/
+env/
+
+# --- notebook / test / lint caches ---
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- logs & runtime state ---
+*.log
+*.pid
+*.lock
+.gpu_reservations.json
+wandb/
+
+# --- upstream model repos (clone separately, see README) ---
+# NOTE: anchored with a leading '/' so they only match at the repo root and
+# do NOT swallow our own utils/openvla/ or utils/openvla_oft/ packages.
+/openvla/
+/openvla_oft/
+/openpi/
+/openpi_client/
+/prismatic/
+/LIBERO/
+/libero/
+/robosuite/
+/experiments/
+/dlimp_openvla/
+
+# --- data / checkpoints / run outputs (never in this repo) ---
+/dataset/
+/data/
+/checkpoints/
+/rollouts/
+/outputs/
+/runs/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.npy
+*.npz
+*.mp4
+*.avi
+*.gif
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*~
+
+# --- large local artifacts that must never be committed ---
+*.docx
+*.pptx
+*.zip
+*.7z

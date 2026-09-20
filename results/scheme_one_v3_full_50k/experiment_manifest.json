@@ -1,0 +1,75 @@
+{
+  "experiment": "scheme_one_tc_td_v3_full",
+  "models": [
+    "openvla",
+    "openvla_oft",
+    "pi0"
+  ],
+  "suites": [
+    "libero_spatial",
+    "libero_object",
+    "libero_goal",
+    "libero_10"
+  ],
+  "seeds": [
+    7,
+    21,
+    42
+  ],
+  "patch_steps": 50000,
+  "batch_size": "auto",
+  "batch_size_probe": {
+    "start": 32,
+    "candidates": [
+      16,
+      20,
+      24,
+      28,
+      32,
+      36,
+      40,
+      48,
+      56,
+      60,
+      64
+    ],
+    "selection": "largest batch passing one complete V3 optimization step on OpenVLA, OpenVLA-OFT, and Pi0",
+    "shared_across_models": true,
+    "result_file": "batch_size_selection.json"
+  },
+  "num_views": 4,
+  "perturbation_ratio": 0.05,
+  "edpa_alpha": 0.8,
+  "step_size": 0.00784313725490196,
+  "relation_temperature": 0.1,
+  "episodes_per_task": 50,
+  "tasks_per_suite": 10,
+  "episodes_per_evaluation": 500,
+  "patch_max_concurrency": 8,
+  "evaluation_max_concurrency": 8,
+  "scheduling": "work-conserving dependency pipeline; patch jobs have queue priority and ready evaluations fill every remaining idle GPU",
+  "gpu_admission": {
+    "openvla_eval_free_mib": 15000,
+    "openvla_oft_eval_free_mib": 15000,
+    "pi0_eval_free_mib": 16000,
+    "patch_and_batch_probe_free_mib": 15000,
+    "patch_admission_policy": "attempt immediately once the model-loading floor is available; use real one-step OOM results to select batch size",
+    "allow_foreign_processes": true
+  },
+  "physical_patch_jobs": 60,
+  "logical_model_suite_seed_patch_sets": 36,
+  "evaluation_jobs": {
+    "table2": 12,
+    "table3": 24,
+    "table4": 27,
+    "table6": 72,
+    "total": 135
+  },
+  "total_evaluation_episodes": 67500,
+  "model_adaptation": {
+    "openvla": "DINOv2 and SigLIP branches with cross-branch relation consistency",
+    "openvla_oft": "DINOv2 and SigLIP branches with cross-branch relation consistency; separate primary and wrist patches",
+    "pi0": "single SigLIP branch with transformation consistency and token-relation disruption; cross-branch term omitted; separate primary and wrist patches"
+  },
+  "startup_validation": "probe from batch size 32 up to 64 or down to 16, select the largest common passing batch, then run one formal optimization-step validation per model"
+}
