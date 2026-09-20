@@ -123,7 +123,7 @@ def scale_and_project_to_anchor(
     auxiliary: torch.Tensor,
     anchor: torch.Tensor,
 ) -> tuple[torch.Tensor, float, float, bool]:
-    """Match the EDPA gradient norm and remove any component opposing EDPA."""
+    """Rescale the auxiliary gradient to the anchor norm and drop any component that opposes it."""
     anchor_float = anchor.float()
     auxiliary_float = auxiliary.float()
     auxiliary_norm = torch.linalg.vector_norm(auxiliary_float)

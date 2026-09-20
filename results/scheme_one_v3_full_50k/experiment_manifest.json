@@ -39,7 +39,7 @@
   },
   "num_views": 4,
   "perturbation_ratio": 0.05,
-  "edpa_alpha": 0.8,
+  "align_alpha": 0.8,
   "step_size": 0.00784313725490196,
   "relation_temperature": 0.1,
   "episodes_per_task": 50,

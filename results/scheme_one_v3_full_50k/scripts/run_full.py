@@ -28,8 +28,8 @@ from scripts import gpu_reservations
 RESULTS_ROOT = Path(__file__).resolve().parents[1]
 CODE_ROOT = RESULTS_ROOT / "code"
 LIBERO_CONFIG_ROOT = RESULTS_ROOT / "libero_config"
-VLA_PYTHON = Path(os.environ.get("EDPA_VLA_PYTHON", "/home/zsj/miniconda3/envs/vla/bin/python"))
-OFT_PYTHON = Path(os.environ.get("EDPA_OFT_PYTHON", "/home/zsj/miniconda3/envs/vla_oft/bin/python"))
+VLA_PYTHON = Path(os.environ.get("VLA_PYTHON", "python"))
+OFT_PYTHON = Path(os.environ.get("OFT_PYTHON", "python"))
 
 MODELS = ("openvla", "openvla_oft", "pi0")
 SUITES = ("libero_spatial", "libero_object", "libero_goal", "libero_10")
@@ -306,7 +306,7 @@ def environment(job: Job, gpu: int, config: Path) -> dict[str, str]:
     env.update({
         "CUDA_VISIBLE_DEVICES": str(gpu), "MUJOCO_EGL_DEVICE_ID": str(gpu),
         "HF_ENDPOINT": env.get("HF_ENDPOINT", "https://hf-mirror.com"),
-        "TOKENIZERS_PARALLELISM": "false", "WANDB_MODE": "offline", "EDPA_SAVE_ROLLOUTS": "0",
+        "TOKENIZERS_PARALLELISM": "false", "WANDB_MODE": "offline", "SAVE_ROLLOUTS": "0",
         "XLA_PYTHON_CLIENT_PREALLOCATE": "false", "PYTORCH_CUDA_ALLOC_CONF": "expandable_segments:True",
         "OPENPI_FAST_TOKENIZER_PATH": str(FAST_TOKENIZER), "LIBERO_CONFIG_PATH": str(config),
         "PI0_CHECKPOINT_PATH": str(PI0_CHECKPOINT), "PI0_POLICY_CONFIG_NAME": PI0_POLICY_CONFIG,

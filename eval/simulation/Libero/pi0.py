@@ -110,7 +110,7 @@ def eval_libero(args: Args) -> None:
     np.random.seed(args.seed)
 
     # Initialize local logging
-    save_rollouts = os.environ.get("EDPA_SAVE_ROLLOUTS", "1") != "0"
+    save_rollouts = os.environ.get("SAVE_ROLLOUTS", "1") != "0"
     run_id = f"EVAL-{args.task_suite_name}-{args.model_family}-{DATE_TIME}"
     if args.run_id_note is not None:
         run_id += f"--{args.run_id_note}"

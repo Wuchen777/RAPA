@@ -1,6 +1,5 @@
 {
   "status": "complete",
-  "time": "2026-07-17 04:42:44",
   "selected_batch_size": 48,
   "shared_across_models": [
     "openvla",

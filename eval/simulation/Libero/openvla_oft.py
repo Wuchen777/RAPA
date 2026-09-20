@@ -385,7 +385,7 @@ def run_episode(
     # Setup
     t = 0
     replay_images = []
-    save_rollouts = os.environ.get("EDPA_SAVE_ROLLOUTS", "1") != "0"
+    save_rollouts = os.environ.get("SAVE_ROLLOUTS", "1") != "0"
     max_steps = TASK_MAX_STEPS[cfg.task_suite_name]
     if cfg.eval_max_steps > 0:
         max_steps = min(max_steps, cfg.eval_max_steps)

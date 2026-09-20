@@ -150,7 +150,7 @@ def eval_libero(cfg: GenerateConfig) -> None:
         processor = get_processor(cfg)
 
     # Initialize local logging
-    save_rollouts = os.environ.get("EDPA_SAVE_ROLLOUTS", "1") != "0"
+    save_rollouts = os.environ.get("SAVE_ROLLOUTS", "1") != "0"
     run_id = f"EVAL-{cfg.task_suite_name}-{cfg.model_family}-{DATE_TIME}"
     if cfg.run_id_note is not None:
         run_id += f"--{cfg.run_id_note}"

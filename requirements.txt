@@ -1,4 +1,4 @@
-# Requirements for the RAPA (TC-TD V3) attacker code in this repository.
+# Requirements for the attacker code in this repository.
 #
 # NOTE: the upstream model repositories (openvla / openvla_oft / openpi /
 # LIBERO) are NOT vendored here and must be cloned separately -- see README.
